@@ -1,0 +1,9 @@
+docker run -d \
+  --name dockhand-main \
+  --restart unless-stopped \
+  -e ENCRYPTION_KEY='Qwerty123456?' \
+  -e TZ='Asia/Makassar' \
+  -p 3000:3000 \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  -v dockhand_data:/app/data \
+  docker.io/fnsys/dockhand:v1.0.45
