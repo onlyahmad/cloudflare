@@ -1,0 +1,19 @@
+services:
+  dockhand:
+    image: docker.io/fnsys/dockhand:v1.0.45
+    container_name: dockhand-main
+    restart: unless-stopped
+
+    environment:
+      - ENCRYPTION_KEY=${ENCRYPTION_KEY}
+      - TZ=Asia/Makassar
+
+    ports:
+      - "3000:3000"
+
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - dockhand_data:/app/data
+
+volumes:
+  dockhand_data:
